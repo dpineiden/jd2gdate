@@ -5,7 +5,7 @@
 *You must set also the date 'format' see at @link: http://php.net/manual/en/function.date.php
 *It give you a date in gregorian format, you can modify this module to add more calendar types maybe.
 *So, @params:
-* $time_data=array($year,$day,$hour,$minute)
+* $time_data=array($year,$day,$hour,$minute,$seconds)
 * $date_format="d/m/Y H:m:i" //maybe
 */
 /**Example:
@@ -13,15 +13,16 @@
 *$dia=338;
 *$hora=10;
 *$minuto=30;
+*$segundos=0;
 *$date_format="d/m/Y H:i";
 */
 
-function jd2gdate($time_date=array('year','day','hour','minute','second'),$date_format){
+function jd2gdate($time_date=array('year','day','hour','minute','seconds'),$date_format){
 $year=$time_date['year'];
 $day=$time_date['day'];
 $hour=$time_date['hour'];
 $minute=$time_date['minute'];
-$second=$time_date['second'];
+$second=$time_date['seconds'];
 $year_jd=gregoriantojd(1,1,$year);
 $day_julian=$year_jd+$day-1;
 $date_gregorian=cal_from_jd($day_julian,CAL_GREGORIAN);
