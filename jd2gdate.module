@@ -26,6 +26,7 @@ $day_julian=$year_jd+$day-1;
 $date_gregorian=cal_from_jd($day_julian,CAL_GREGORIAN);
 $time=mktime($hour,$minute,0,$date_gregorian['month'],$date_gregorian['day'],$date_gregorian['year']);
 $fecha=date($date_format,$time);
+return $fecha;
 }
 
 /*Try it on html
