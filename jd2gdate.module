@@ -22,11 +22,11 @@ $year=$time_date['year'];
 $day=$time_date['day'];
 $hour=$time_date['hour'];
 $minute=$time_date['minute'];
-$second=$time_date['seconds'];
+$seconds=$time_date['seconds'];
 $year_jd=gregoriantojd(1,1,$year);
 $day_julian=$year_jd+$day-1;
 $date_gregorian=cal_from_jd($day_julian,CAL_GREGORIAN);
-$time=mktime($hour,$minute,$second,$date_gregorian['month'],$date_gregorian['day'],$date_gregorian['year']);
+$time=mktime($hour,$minute,$seconds,$date_gregorian['month'],$date_gregorian['day'],$date_gregorian['year']);
 $fecha=date($date_format,$time);
 return $fecha;
 }
