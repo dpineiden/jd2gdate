@@ -1,4 +1,4 @@
-name = Julian Day to Gergorian
+name = Julian Day to Gregorian
 description = Este modulo permite convertir fechas basadas en dias juliano, (año, dia consecutivo)
 core = 7.x
 package = "Funciones CEA"
