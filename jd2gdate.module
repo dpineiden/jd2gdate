@@ -16,15 +16,16 @@
 *$date_format="d/m/Y H:i";
 */
 
-function jd2gdate($time_date=array('year','day','hour','minute'),$date_format){
+function jd2gdate($time_date=array('year','day','hour','minute','second'),$date_format){
 $year=$time_date['year'];
 $day=$time_date['day'];
 $hour=$time_date['hour'];
 $minute=$time_date['minute'];
+$second=$time_date['second'];
 $year_jd=gregoriantojd(1,1,$year);
 $day_julian=$year_jd+$day-1;
 $date_gregorian=cal_from_jd($day_julian,CAL_GREGORIAN);
-$time=mktime($hour,$minute,0,$date_gregorian['month'],$date_gregorian['day'],$date_gregorian['year']);
+$time=mktime($hour,$minute,$second,$date_gregorian['month'],$date_gregorian['day'],$date_gregorian['year']);
 $fecha=date($date_format,$time);
 return $fecha;
 }
