@@ -1,34 +1,44 @@
  
 <?php
 /**
-*This module can convert date if you have 'year', 'day of year' (1 to 365) and 'hour', 'minute' if you need.
-*You must set also the date 'format' see at @link: http://php.net/manual/en/function.date.php
-*It give you a date in gregorian format, you can modify this module to add more calendar types maybe.
+*This module can convert date if you have 'year', 'day of year' (1 to 365) and 'hour', 'minute' if you need . 
+*You must set also the date 'format' see at @link: http://php . net/manual/en/function . date . php
+*It give you a date in gregorian format, you can modify this module to add more calendar types maybe . 
 *So, @params:
-* $time_data=array($year,$day,$hour,$minute,$seconds)
-* $date_format="d/m/Y H:m:i" //maybe
+* $time_data = array($year,$day,$hour,$minute,$seconds)
+* $date_format = "d/m/Y H:m:i" //maybe
 */
 /**Example:
-*$year=2014;
-*$dia=338;
-*$hora=10;
-*$minuto=30;
-*$segundos=0;
-*$date_format="d/m/Y H:i";
+*$year = 2014;
+*$dia = 338;
+*$hora = 10;
+*$minuto = 30;
+*$segundos = 0;
+*$date_format = "d/m/Y H:i";
 */
-
-function jd2gdate($time_date=array('year','day','hour','minute','seconds'),$date_format){
-$year=$time_date['year'];
-$day=$time_date['day'];
-$hour=$time_date['hour'];
-$minute=$time_date['minute'];
-$seconds=$time_date['seconds'];
-$year_jd=gregoriantojd(1,1,$year);
-$day_julian=$year_jd+$day-1;
-$date_gregorian=cal_from_jd($day_julian,CAL_GREGORIAN);
-$time=mktime($hour,$minute,$seconds,$date_gregorian['month'],$date_gregorian['day'],$date_gregorian['year']);
-$fecha=date($date_format,$time);
-return $fecha;
+/*Agregar funcion que pase julianday2yearanddayyear
+*Coger el año del dia juliano y el dia
+*/
+//function jd2ydy(int $julianday){
+//  $ydy   = array(
+//  'year' =>'',
+//  'day'  =>'',
+//  );
+//  return null;
+//}
+/**/
+function jd2gdate($time_date = array('year','day','hour','minute','seconds'),$date_format){
+  $year = $time_date['year'];
+  $day = $time_date['day'];
+  $hour = $time_date['hour'];
+  $minute = $time_date['minute'];
+  $seconds = $time_date['seconds'];
+  $year_jd = gregoriantojd(1,1,$year);
+  $day_julian = $year_jd+$day-1;
+  $date_gregorian = cal_from_jd($day_julian,CAL_GREGORIAN);
+  $time = mktime($hour,$minute,$seconds,$date_gregorian['month'],$date_gregorian['day'],$date_gregorian['year']);
+  $fecha = date($date_format,$time);
+  return $fecha;
 }
 
 /*Try it on html
