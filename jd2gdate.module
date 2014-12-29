@@ -38,7 +38,7 @@ function jd2gdate($time_date = array('year','day','hour','minute','seconds'),$da
   $date_gregorian = cal_from_jd($day_julian,CAL_GREGORIAN);
   $time = mktime($hour,$minute,$seconds,$date_gregorian['month'],$date_gregorian['day'],$date_gregorian['year']);
   $fecha = date($date_format,$time);
-  return $fecha;
+  return array($fecha,$time);
 }
 
 /*Try it on html
